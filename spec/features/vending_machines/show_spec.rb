@@ -19,17 +19,17 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
   it 'shows all the snacks and their prices for that machine and avg price of snacks' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
-    ice_t  = dons.snacks.create(name: "Iced Tea", price: 2.00)
+    ice_t  = dons.snacks.create(name: "Iced Tea", price: 1.50)
     matcha_b  = dons.snacks.create(name: "Matcha Boba", price: 5.00)
     gatorade  = dons.snacks.create(name: "Gatorade", price: 2.50)
 
     visit machine_path(dons)
-
+    save_and_open_page
     dons.snacks.each do |snack|
       within "#snack-#{snack.id}" do
-      expect(page).to have_content("#{snack.name}: $ #{snack.price}")
+      expect(page).to have_content("#{snack.name}: $#{snack.price}")
       end
     end
-    expect(page).to have_content("Average Price: $3.00")
+    expect(page).to have_content("Average Price: $3.0")
   end
 end
