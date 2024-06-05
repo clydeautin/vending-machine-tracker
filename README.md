@@ -10,10 +10,10 @@ To help you understand these relationships, complete this paragraph:
 
 ```
 Owners have many Vending Machines, and
-Vending Machines belong to one _______. 
+Vending Machines belong to one Owner_______. 
 Vending Machines have many Snacks, and
-Snacks _______ Vending Machines. 
-Snacks and Vending Machines are related through a table called ________. 
+Snacks have many_______ Vending Machines. 
+Snacks and Vending Machines are related through a table called VendingMachineSnacks________. 
 ```
 
 
