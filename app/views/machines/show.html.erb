@@ -8,3 +8,16 @@ Snacks
 <% end %>
 
 <p>Average Price: $<%= @machine.average_price %></p>
+
+<%= form_with url: "/machines/#{@machine.id}/snacks", method: :post, local: true, data: { turbo: false } do |form| %>
+  <%= form.label :snack_id %>
+  <%= form.text_field :snack_id %>
+  <%= form.submit "Submit" %>
+<% end %>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
