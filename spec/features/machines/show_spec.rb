@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'When a user visits a vending machine show page', type: :feature do
+RSpec.describe 'When a user visits a machine show page', type: :feature do
   scenario 'they see the location of that machine' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
@@ -14,8 +14,8 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
 
   # As a visitor
   # When I visit a vending machine show page
-  #[] I see the name of all of the snacks associated with that vending machine along with their price
-  #[] and I also see an average price for all of the snacks in that machine. 
+  #[x] I see the name of all of the snacks associated with that vending machine along with their price
+  #[x] and I also see an average price for all of the snacks in that machine. 
   it 'shows all the snacks and their prices for that machine and avg price of snacks' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
@@ -87,5 +87,18 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
       # save_and_open_page
       expect(page).to have_content("Snack ID can't be blank")
     end
+
+  # User Story 3 of 3
+
+  # As a visitor
+  # When I visit a snack show page
+  #[]I see the name of that snack
+  #[]   and I see the price for that snack
+  # []  and I see a list of locations with vending machines that carry that snack
+  # []  and I see the average price for snacks in those vending machines
+  # []  and I see a count of the different kinds of items in that vending machine.
+
+    
+
 
 end
