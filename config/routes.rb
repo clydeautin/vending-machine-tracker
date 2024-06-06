@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :machines, only: [:show]
 
+  resources :snacks, only: [:show]
+
   post "/machines/:id/snacks", to: "vending_machine_snacks#create"
   # resources :vending_machine_snacks, only: [:create]
 end

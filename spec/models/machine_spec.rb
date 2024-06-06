@@ -13,13 +13,23 @@ RSpec.describe Machine, type: :model do
 
   describe "methods" do
     it "can give the average price of snacks in a machine" do
-    owner = Owner.create(name: "Sam's Snacks")
-    dons  = owner.machines.create(location: "Don's Mixed Drinks")
-    ice_t  = dons.snacks.create(name: "Iced Tea", price: 1.50)
-    matcha_b  = dons.snacks.create(name: "Matcha Boba", price: 5.00)
-    gatorade  = dons.snacks.create(name: "Gatorade", price: 2.50)
+      owner = Owner.create(name: "Sam's Snacks")
+      dons  = owner.machines.create(location: "Don's Mixed Drinks")
+      ice_t  = dons.snacks.create(name: "Iced Tea", price: 1.50)
+      matcha_b  = dons.snacks.create(name: "Matcha Boba", price: 5.00)
+      gatorade  = dons.snacks.create(name: "Gatorade", price: 2.50)
 
-    expect(dons.average_price).to eq(3.00)
+      expect(dons.average_price).to eq(3.00)
+    end
+
+    it "can give the count of snacks in a machine" do
+      owner = Owner.create(name: "Sam's Snacks")
+      dons  = owner.machines.create(location: "Don's Mixed Drinks")
+      ice_t  = dons.snacks.create(name: "Iced Tea", price: 1.50)
+      matcha_b  = dons.snacks.create(name: "Matcha Boba", price: 5.00)
+      gatorade  = dons.snacks.create(name: "Gatorade", price: 2.50)
+
+      expect(dons.snack_count).to eq(3)
     end
   end
 end

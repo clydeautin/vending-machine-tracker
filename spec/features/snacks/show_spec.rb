@@ -6,11 +6,11 @@ RSpec.describe 'When a user visits a snack show page', type: :feature do
 
   # As a visitor
   # When I visit a snack show page
-  #[]I see the name of that snack
-  #[]   and I see the price for that snack
-  #[]  and I see a list of locations with vending machines that carry that snack
-  #[]  and I see the average price for snacks in those vending machines
-  #[]  and I see a count of the different kinds of items in that vending machine.
+  #[x]I see the name of that snack
+  #[x]   and I see the price for that snack
+  #[x]  and I see a list of locations with vending machines that carry that snack
+  #[x]  and I see the average price for snacks in those vending machines
+  #[x]  and I see a count of the different kinds of items in that vending machine.
   it 'willl show all details of that snack availability' do
     owner = Owner.create(name: "Sam's Snacks")
     dons  = owner.machines.create(location: "Don's Mixed Drinks")
@@ -28,14 +28,14 @@ RSpec.describe 'When a user visits a snack show page', type: :feature do
     vms4 = VendingMachineSnack.create(machine: gkrwc, snack: americano)
     vms5 = VendingMachineSnack.create(machine: gkrwc, snack: g_beer)
 
-    vms6 = VendingMachineSnack.create(machine: all_sc, snack:g_beer),
+    vms6 = VendingMachineSnack.create(machine: all_sc, snack:g_beer)
 
-    visit snacks_path(matcha_b)
+    visit snack_path(matcha_b)
 
     expect(page).to have_content("Name: #{matcha_b.name}")
     expect(page).to have_content("Price: $#{matcha_b.price}")
     expect(page).to have_content("Don's Mixed Drinks (2 kinds of snacks, average price of $3.25)")
-    expect(page).to have_content("Don's Mixed Drinks (3 kinds of snacks, average price of $3.0)")
+    expect(page).to have_content("Game Kastle RWC (3 kinds of snacks, average price of $3.0)")
     expect(page).to_not have_content("All Star Cleaners")
 
     # need a model method to count the snack at a machine + model test
